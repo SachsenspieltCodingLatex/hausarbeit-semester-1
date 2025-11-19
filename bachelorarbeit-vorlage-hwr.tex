@@ -1,0 +1,376 @@
+%% Vorlage Bachelorarbeit
+
+%% Versionshistorie:
+
+%% v1.0: Erstellung durch Johannes Woske, IT2010, j.woske+latex@gmail.com
+%% v2.0: Überarbeitung und Ergänzung durch Anne Traulsen, IT2015, a.traulsen+latex@gmail.com
+
+\documentclass[
+	12pt, %Schriftgröße
+	a4paper,
+	liststotoc, %Inhaltsverzeichniseinträge für Listen (z.B. Abbildungen)
+	bibtotoc, %Inhaltsverzeichniseinträge f+r Quellen
+	pointlessnumbers, %Entfernt Punkt hinter Gliederungsnummern
+	ngerman, %Sprachpaket
+	headsepline, %Headertrennlinie
+	%footsepline, %Footertrennlinie
+	oneside %einseitiges Druckformat %%% Unterdrücken der leeren Seite nach Titelblatt
+	]{scrbook} %Dokumentenklasse (Koma-Script)
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{url}
+\usepackage{graphicx} %Bilder einfügen
+%\usepackage{pdfpages} %PDF einfügen
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage[right]{eurosym} %Euro-Zeichen
+\usepackage{amssymb}
+\usepackage{cite} %Quellenangaben
+\usepackage{setspace} % Zeilenabstand
+\usepackage[ 
+   colorlinks,        % Links ohne Umrandungen in zu wählender Farbe 
+   linkcolor=black,   % Farbe interner Verweise 
+   filecolor=black,   % Farbe externer Verweise 
+   citecolor=black,   % Farbe von Zitaten 
+   urlcolor=blue	  % Farbe von Links
+   ]{hyperref} %Verlinkungen
+\usepackage[figure]{hypcap}
+\usepackage[ngerman]{translator}
+\usepackage{blindtext} % Lorem-Ipsum-Plugin
+\usepackage[acronym, nonumberlist]{glossaries} %% use after hyperref %Glossar-Paket laden
+%\usepackage[
+	%nonumberlist, %keine Seitenzahlen anzeigen
+	%acronym,      %ein Abkürzungsverzeichnis erstellen
+	%toc,          %Einträge im Inhaltsverzeichnis
+	%section      %im Inhaltsverzeichnis auf section-Ebene erscheinen
+	%]
+%{glossaries}
+
+\usepackage{listings,xcolor} %Codeanzeige
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+
+\definecolor{dkgreen}{rgb}{0,.6,0}
+\definecolor{dkblue}{rgb}{0,0,.6}
+\definecolor{dkyellow}{cmyk}{0,0,.8,.3}
+
+\lstset{
+    numbers=left, 
+    numberstyle=\tiny, 
+    numbersep=5pt,
+    breaklines=true,
+    frame=single,
+    escapeinside={(*@}{@*)}, %nicht anzuzeigende Ausdrücke, z.B. für Labels
+    language=sh,
+    basicstyle=\ttfamily\fontsize{10}{12}\selectfont,
+    keywordstyle    = \color{dkblue},
+    stringstyle     = \color{red},
+    identifierstyle = \color{dkgreen},
+    commentstyle    = \color{gray},
+    emph            =[1]{php},
+    emphstyle       =[1]\color{black},
+    emph            =[2]{if,and,or,else},
+    emphstyle       =[2]\color{dkyellow}
+    } 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% Sonderformatierung
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Seitenabstände definieren
+\geometry{verbose,tmargin=3cm,bmargin=2cm,lmargin=3cm,rmargin=3cm} 
+
+% Hurenkinder und Schusterjungen verhindern (Ja, das heißt wirklich so!!!)
+\clubpenalty = 10000 \widowpenalty = 10000 \displaywidowpenalty = 10000 
+
+\newcommand{\footfigref}[1]{\footnote{Abb. \ref{#1} auf Seite \pageref{#1}}}
+
+%% Bei Referenzen im Text wird jetzt bei allen Ebenen "Kapitel" vorgestellt, z.b. Kapitel 2, Kapitel 2.2, Kapitel 6.3.2
+\addto\extrasngerman{%
+    \def\sectionautorefname{Kapitel}%
+    \def\subsectionautorefname{Kapitel}%
+    \def\subsubsectionautorefname{Kapitel}%
+    }
+
+% Vertikaler Abstand zwischen Ende Textblock - Ende Fußzeile --> Abstand der Seitenzahl von Rand erhöhen 
+\setlength{\footskip}{10mm}
+
+% Abstand vor/nach Überschriften verändern
+
+\RedeclareSectionCommand[%
+    beforeskip=0.5\baselineskip,
+    afterskip=0.5\baselineskip
+]{chapter}
+
+\RedeclareSectionCommand[%
+    beforeskip=0.5\baselineskip,
+    afterskip=0.5\baselineskip
+]{section}
+
+\RedeclareSectionCommand[%
+    beforeskip=0.1\baselineskip,
+    afterskip=0.1\baselineskip
+]{subsection}
+
+\RedeclareSectionCommand[%
+    beforeskip=0.01\baselineskip,
+    %%afterskip=0.2\baselineskip
+]{paragraph}
+
+\setlength{\abovecaptionskip}{4pt}  % 1pc=12pt 
+\setlength{\belowcaptionskip}{0pt}
+%\setlength{\textfloatsep}{4pt}
+\setlength{\intextsep}{1pc}
+
+%% Verkleinerung der Textgröße unter Abbildungen
+\addtokomafont{caption}{\small}
+
+% falsche Default-Silbentrennung überschreiben
+\include{hyphenation}
+
+% Den Punkt am Ende der Glossareinträge deaktivieren
+\renewcommand*{\glspostdescription}{}
+
+%Glossar-Befehle anschalten
+%\makeglossaries
+
+% sorgt dafür, dass bei Leerzeile die Einrückung verhindert und stattdessen eine Leerzeile eingefügt wird % erspart bigskips und erhöht die Lesbarkeit im LaTeX-Text 
+\KOMAoptions{parskip=full*}
+
+% ändert Titelschriftart in Serifen-Normalschriftart
+\addtokomafont{disposition}{\rmfamily} 
+
+\makenoidxglossaries
+
+\loadglsentries{glossar.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% Textbausteine
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Studentenname
+\newcommand{\studentName}{Finn Noel Valentin Margraf}
+%%%%%%%%%%%% Typ der Arbeit
+\newcommand{\type}{Seminararbeit}
+%%%%%%%%%%%% Thema
+\newcommand{\topic}{Sicherheit von LDAP Verzeichnissen}
+%%%%%%%%%%%% Untertitel
+\newcommand{\subtopic}{Eine Analyse von Angriffsmöglichkeiten und Schutzmaßnahmen}
+%%%%%%%%%%%% Studienbereich
+\newcommand{\studienbereich}{Technik}
+%%%%%%%%%%%% Fachrichtung
+\newcommand{\fachrichtung}{Informatik}
+%%%%%%%%%%%% Studiengang
+\newcommand{\studiengang}{Informatik}
+%%%%%%%%%%%% Betrieb
+\newcommand{\company}{Flughafen Berlin Brandenburg GmbH}
+%%%%%%%%%%%% Betreuer HWR
+\newcommand{\betreuerHS}{Mia Chelsea Pertubla Reyes}
+%%%%%%%%%%%% Jahrgang
+\newcommand{\jahrgang}{2025}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%>>>>>>>
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%>>>>>>>
+%%%%%%%%%%% Titelblatt
+
+%% Anordnung und Aussehen von Titel und Untertitel
+
+\subject{\type}
+
+\title{
+\normalfont\endgraf\rule{\textwidth}{.4pt}
+\begingroup
+	\centering
+	\linespread{1.5}
+	\huge\topic
+\endgroup
+\linespread{1}
+\ \\ % Falls kein Subtopic, auskommentieren
+\ \\ % Falls kein Subtopic, auskommentieren
+\large\subtopic % Falls kein Subtopic, auskommentieren
+\endgraf\rule{\textwidth}{.4pt}
+}
+ 
+%%Eigentlich nicht besonders schön, aber Koma erlaubt die Anordnung eines weiteren Felden (hier: Fachbereich) nicht
+\date{\normalsize vorgelegt am 17. Dezember 2025\\ \textbullet \\ Fachbereich Duales Studium Wirtschaft / Technik \\
+Hochschule für Wirtschaft und Recht Berlin}
+%% \date muss leer angegeben werden, um die Default-Datumsanzeige zu unterdrücken
+
+\publishers{
+	\begin{tabular}{l l}
+	\textbf{\normalsize{}} & \normalsize{}  \tabularnewline
+	\textbf{\normalsize{}} & \normalsize{}  \tabularnewline
+	\textbf{\normalsize{Name:}} & \normalsize{\studentName}  \tabularnewline
+	\textbf{\normalsize{Ausbildungsbetrieb:}} & \normalsize{\company}  \tabularnewline
+	\textbf{\normalsize{Studienbereich:}} & \normalsize{\studienbereich}  \tabularnewline
+	\textbf{\normalsize{Fachrichtung:}} & \normalsize{\fachrichtung} \tabularnewline
+	\textbf{\normalsize{Studiengang:}} & \normalsize{\studiengang} \tabularnewline
+	\textbf{\normalsize{Studienjahrgang:}} & \normalsize{\jahrgang} \tabularnewline
+	\textbf{\normalsize{Erstgutachter:}} & \normalsize{\betreuerHS}
+	%%\tabularnewline
+	%%\textbf{\normalsize{Wörter:}} & \normalsize{XXXX}
+	\end{tabular}
+	}
+
+\titlehead{\begin{center}
+    \includegraphics[scale=0.7]{bilder/header_logo.PNG}
+    \end{center}
+    }
+
+\maketitle
+
+\onehalfspacing % anderthalbfacher Zeilenabstand
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% Dokumenteninhalt START
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% Abstract
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+Die erste überarbeitete Auflage der Bachelorarbeit-Vorlage bietet einige Neuerungen, die in \autoref{sec:allgemein} näher erläutert werden.
+
+Wenn die Abstract-Seite nicht die zweite Seite im Dokument ist, ist der Titel zu lang ;)
+
+\pagenumbering{Roman} % römische Seitenzahlen
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% Inhaltsverzeichnis, Tabellen, Abbildungen, etc.
+\newpage
+
+\tableofcontents{}
+\addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
+
+\listoffigures
+\listoftables
+
+\section*{Hinweis}
+
+Aus Gründen der besseren Lesbarkeit wird im Text verallgemeinernd die weibliche Form verwendet. Diese Formulierungen umfassen gleichermaßen weibliche und männliche Personen.
+\clearpage
+
+\addcontentsline{toc}{chapter}{Akronyme}
+\printnoidxglossaries
+
+\clearpage
+
+%% arabische Seitenzahlen
+\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% Einführung
+
+\chapter{Allgemeines}\label{sec:allgemein}
+
+Diese Einführung soll einen kurzen Überblick über die allgemeinen Möglichkeiten von \LaTeX{} geben. 
+
+Es kann auf Bilder wie das HWR-Logo verwiesen werden (s. \autoref{fig:hwrlogo}) oder auf Tabellen (s. \autoref{table:tab_spalten}).
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.8]{bilder/header_logo.png}
+  \label{fig:hwrlogo}       %fig:ID
+  \caption[HWR-Logo: Überschrift Abbildungsverzeichnis]{HWR-Logo Bildunterschrift}    %Bildunterschrift
+\end{figure}
+
+\begin{table}[h]
+\centering
+\small	
+\begin{tabular}{|l l l l|}
+\hline
+Spalte 1 & Spalte 2 & Spalte 3 & Spalte 4\\
+\hline
+\end{tabular}
+\caption{Eine Tabelle mit Spalten}
+\label{table:tab_spalten}
+\end{table}
+
+Auch Quellenverweise sind möglich. Quellen werden in der Datei literatur.bib angelegt und tauchen automatisch im Literaturverzeichnis auf, wenn der Text einen entsprechenden Verweis enthält \cite[S. 42-1337]{XP}. Auch Glossareinträge wie \gls{glos:AntwD} oder Abkürzungen wie \gls{DMZ}, \gls{AD} und \gls{CD} folgen dieser Regel.
+
+Verweise auf Kapitel sind ebenfalls möglich. Kapitel werden zu diesem Zweck mit einem Label versehen (s. \autoref{sec:allgemein}).
+Außerdem gibt es natürlich so schöne Dinge wie Aufzählungen\footnote{und Fußnoten}
+
+\begin{itemize}
+	\item Wenn bloß eine Aufzählung
+	\item benötigt wird
+\end{itemize}
+
+und Numerierungen
+
+\begin{enumerate}
+	\item Wenn eine Numerierung 
+	\item gewünscht ist
+\end{enumerate}
+
+\section{Besonderheit}
+
+Unter dem vorliegenden Kapitel ist eine Besonderheit dieser Vorlage aufgeführt. Aufgrund von Platz- und Übersichtsgründen soll wie in der ursprünglichen Vorlage im Text nur ein abgekürzter Literatureintrag angezeigt werden, wie \cite[S. 42-1337]{XP}, aber im Literaturverzeichnis soll sich der Gesamteintrag weitestgehend an den APA-Richtlinien orientieren. 
+
+Die Formatierung des Literaturverzeichnisses weicht daher vom Standard ab. Die im Paket enthaltene Datei ,,hwrbib.bst'' bietet diese Möglichkeit an.
+
+Hier noch der Trigger für einige Literaturverzeichniseinträge: 
+
+\begin{itemize}
+	\item \cite{HUMMWIE_2005}
+	\item \cite{DWD_Beau}
+	\item \cite{CRISP}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Quellen
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliography{literatur}
+
+\bibliographystyle{hwrbib}
+%% \bibliographystyle{alpha} %% tu es nicht, niemals, das ist eklig, nicht einkommentieren
+
+\chapter*{Ehrenwörtliche Erklärung}
+\addcontentsline{toc}{chapter}{Ehrenwörtliche Erklärung}
+
+% Keine Kopf- und Fußzeilen ausgeben
+\thispagestyle{empty}
+% Aber trotzdem ins Inhaltsverzeichnis aufnehmen
+%\addcontentsline{toc}{section}{Eidesstattliche Erklärung}
+
+% Hier der offizielle Text der eidesstattlichen Erklärung
+Hiermit versichere ich, dass ich die vorliegende Arbeit in
+allen Teilen selbstständig angefertigt und keine anderen als die in der Arbeit
+angegebenen Quellen und Hilfsmittel benutzt habe, und dass die Arbeit in
+gleicher oder ähnlicher Form in noch keiner anderen Prüfung vorgelegen hat.
+Sämtliche wörtlichen oder sinngemäßen Übernahmen und Zitate, sowie alle
+Abschnitte, die mithilfe von KI-basierten Tools entworfen, verfasst und/oder
+bearbeitet wurden, sind kenntlich gemacht und nachgewiesen.
+
+Im Anhang meiner Arbeit habe ich sämtliche KI-basierte
+Hilfsmittel angegeben. Diese sind mit Produktnamen und formulierten Eingaben
+(Prompts) in einem KI-Verzeichnis ausgewiesen.
+
+Ich bin mir bewusst, dass die Verwendung von Texten oder
+anderen Inhalten und Produkten, die durch KI-basierte Tools generiert wurden,
+keine Garantie für deren Qualität darstellt. Ich verantworte die Übernahme
+jeglicher von mir verwendeter maschinell generierter Passagen vollumfänglich
+selbst und trage die Verantwortung für eventuell durch die KI generierte
+fehlerhafte oder verzerrte Inhalte, fehlerhafte Referenzen, Verstöße gegen das
+Datenschutz- und Urheberrecht oder Plagiate.
+
+% Etwas Abstand für die Unterschrift
+\vspace{2cm}
+
+% Hier kommt die Unterschrift drüber
+\begin{tabular}{lp{4em}l} 
+ \hspace{5cm}   && \hspace{4cm} \\\cline{1-1}\cline{3-3} 
+ Ort, Datum     && \studentName
+\end{tabular}
+
+\end{document}
+
