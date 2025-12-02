@@ -156,11 +156,11 @@
 %%%%%%%%%%%% Studentenname
 \newcommand{\studentName}{Finn Noel Valentin Margraf}
 %%%%%%%%%%%% Typ der Arbeit
-\newcommand{\type}{Seminararbeit}
+\newcommand{\type}{Hausarbeit}
 %%%%%%%%%%%% Thema
-\newcommand{\topic}{Sicherheit von LDAP Verzeichnissen}
+\newcommand{\topic}{TETRA - Digitaler Bündelfunk in den Einheiten der BOS}
 %%%%%%%%%%%% Untertitel
-\newcommand{\subtopic}{Eine Analyse von Angriffsmöglichkeiten und Schutzmaßnahmen}
+\newcommand{\subtopic}{Gegenüberstellung der Vorteile, Nachteile und Risiken}
 %%%%%%%%%%%% Studienbereich
 \newcommand{\studienbereich}{Technik}
 %%%%%%%%%%%% Fachrichtung
@@ -255,7 +255,7 @@ Wenn die Abstract-Seite nicht die zweite Seite im Dokument ist, ist der Titel zu
 
 \section*{Hinweis}
 
-Aus Gründen der besseren Lesbarkeit wird im Text verallgemeinernd die weibliche Form verwendet. Diese Formulierungen umfassen gleichermaßen weibliche und männliche Personen.
+Aus Gründen der besseren Lesbarkeit wird im Text verallgemeinernd die generisch maskuline Form, sofern möglich, verwendet. Diese Formulierungen umfassen gleichermaßen weibliche und männliche Personen.
 \clearpage
 
 \addcontentsline{toc}{chapter}{Akronyme}
@@ -269,61 +269,89 @@ Aus Gründen der besseren Lesbarkeit wird im Text verallgemeinernd die weibliche
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% Einführung
 
-\chapter{Allgemeines}\label{sec:allgemein}
+\chapter{Einleitung}\label{sec:einleitung}
 
-Diese Einführung soll einen kurzen Überblick über die allgemeinen Möglichkeiten von \LaTeX{} geben. 
+Laut einer Statistik des Deutschen Feuerwehrverbandes (DFV) aus dem Jahr 2022 kommen im Jahr rund 1,02 Millionen Einsätze
+in den Bereichen Brandschutz, Technische Hilfeleistung und Tierrettung sowie 157.480 Fehlalarme zustande, Tendenz steigend. \cite[S. 2]{deutscherfeuerwehrverbandEinsatzeNachTatigkeitsbereichen2022}
+Mit wachsenden Einsatzzahlen steigt auch die Anforderung an eine zuverlässige Kommunikation der Einsatzkräfte untereinander.
+Mit der Einführung des digitalen Bündelfunks für alle \gls{BOS} auf \gls{TETRA}-Basis im Jahr 2015 \cite{bdbosBDBOSGeschichte} findet seither in Deutschland
+eine Umstellung vom analogen Funknetz auf das digitale Funknetz statt.
+Bereits im Jahr 2024 waren etwa 1,2 Millionen \gls{TETRA}-Endgeräte in Deutschland im Einsatz. \cite[S. 19]{bdbosFAQDigitalfunkBOS2024}
 
-Es kann auf Bilder wie das HWR-Logo verwiesen werden (s. \autoref{fig:hwrlogo}) oder auf Tabellen (s. \autoref{table:tab_spalten}).
+Trotz anhaltenden Wachstums steht das \gls{TETRA}-Netz allerdings auch immer wieder in der Kritik.
+Insbesondere vergangene, einschlägige flächendeckende Ausfälle des Netzes, wie zuletzt am \date{06. Mai 2025} sorgen für Unmut. \cite[S. 1]{agbfdfvErkenntnisseAusGrossflachigen2025}
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[scale=0.8]{bilder/header_logo.png}
-  \label{fig:hwrlogo}       %fig:ID
-  \caption[HWR-Logo: Überschrift Abbildungsverzeichnis]{HWR-Logo Bildunterschrift}    %Bildunterschrift
-\end{figure}
+Aus diesem Grund beschäftigt sich die folgende Hausarbeit insbesondere mit den Vor- und Nachteilen des \gls{TETRA}-Digitalfunks
+in Hinblick auf die Einheiten der \gls{BOS} in Deutschland.
+Außerdem sollen mögliche Risiken und Gefahren, die mit der Nutzung des \gls{TETRA}-Netzes einhergehen, betrachtet werden.
 
-\begin{table}[h]
-\centering
-\small	
-\begin{tabular}{|l l l l|}
-\hline
-Spalte 1 & Spalte 2 & Spalte 3 & Spalte 4\\
-\hline
-\end{tabular}
-\caption{Eine Tabelle mit Spalten}
-\label{table:tab_spalten}
-\end{table}
+\chapter{Theoretische Einführung}\label{sec:einfuehrung}
 
-Auch Quellenverweise sind möglich. Quellen werden in der Datei literatur.bib angelegt und tauchen automatisch im Literaturverzeichnis auf, wenn der Text einen entsprechenden Verweis enthält \cite[S. 42-1337]{XP}. Auch Glossareinträge wie \gls{glos:AntwD} oder Abkürzungen wie \gls{DMZ}, \gls{AD} und \gls{CD} folgen dieser Regel.
+\section{Der TETRA-Standard}\label{sec:der-tetra-standard}
 
-Verweise auf Kapitel sind ebenfalls möglich. Kapitel werden zu diesem Zweck mit einem Label versehen (s. \autoref{sec:allgemein}).
-Außerdem gibt es natürlich so schöne Dinge wie Aufzählungen\footnote{und Fußnoten}
+\section{Das BOS-Digitalfunknetz}\label{sec:das-bos-digitalfunknetz}
 
-\begin{itemize}
-	\item Wenn bloß eine Aufzählung
-	\item benötigt wird
-\end{itemize}
+\chapter{Vor- und Nachteile des TETRA-Digitalfunks}\label{sec:vor-und-nachteile}
 
-und Numerierungen
+\chapter{Risiken und Gefahren des TETRA-Digitalfunks}\label{sec:risiken-und-gefahren}
 
-\begin{enumerate}
-	\item Wenn eine Numerierung 
-	\item gewünscht ist
-\end{enumerate}
+\chapter{Fazit und Ausblick}\label{sec:fazit-und-ausblick}
 
-\section{Besonderheit}
+Hallo Welt!
 
-Unter dem vorliegenden Kapitel ist eine Besonderheit dieser Vorlage aufgeführt. Aufgrund von Platz- und Übersichtsgründen soll wie in der ursprünglichen Vorlage im Text nur ein abgekürzter Literatureintrag angezeigt werden, wie \cite[S. 42-1337]{XP}, aber im Literaturverzeichnis soll sich der Gesamteintrag weitestgehend an den APA-Richtlinien orientieren. 
-
-Die Formatierung des Literaturverzeichnisses weicht daher vom Standard ab. Die im Paket enthaltene Datei ,,hwrbib.bst'' bietet diese Möglichkeit an.
-
-Hier noch der Trigger für einige Literaturverzeichniseinträge: 
-
-\begin{itemize}
-	\item \cite{HUMMWIE_2005}
-	\item \cite{DWD_Beau}
-	\item \cite{CRISP}
-\end{itemize}
+%Diese Einführung soll einen kurzen Überblick über die allgemeinen Möglichkeiten von \LaTeX{} geben.
+%
+%Es kann auf Bilder wie das HWR-Logo verwiesen werden (s. \autoref{fig:hwrlogo}) oder auf Tabellen (s. \autoref{table:tab_spalten}).
+%
+%\begin{figure}[h]
+%  \centering
+%  \includegraphics[scale=0.8]{bilder/header_logo.png}
+%  \label{fig:hwrlogo}       %fig:ID
+%  \caption[HWR-Logo: Überschrift Abbildungsverzeichnis]{HWR-Logo Bildunterschrift}    %Bildunterschrift
+%\end{figure}
+%
+%\begin{table}[h]
+%\centering
+%\small
+%\begin{tabular}{|l l l l|}
+%\hline
+%Spalte 1 & Spalte 2 & Spalte 3 & Spalte 4\\
+%\hline
+%\end{tabular}
+%\caption{Eine Tabelle mit Spalten}
+%\label{table:tab_spalten}
+%\end{table}
+%
+%Auch Quellenverweise sind möglich. Quellen werden in der Datei literatur.bib angelegt und tauchen automatisch im Literaturverzeichnis auf, wenn der Text einen entsprechenden Verweis enthält \cite[S. 42-1337]{XP}. Auch Glossareinträge wie \gls{glos:AntwD} oder Abkürzungen wie \gls{DMZ}, \gls{AD} und \gls{CD} folgen dieser Regel.
+%
+%Verweise auf Kapitel sind ebenfalls möglich. Kapitel werden zu diesem Zweck mit einem Label versehen (s. \autoref{sec:allgemein}).
+%Außerdem gibt es natürlich so schöne Dinge wie Aufzählungen\footnote{und Fußnoten}
+%
+%\begin{itemize}
+%	\item Wenn bloß eine Aufzählung
+%	\item benötigt wird
+%\end{itemize}
+%
+%und Numerierungen
+%
+%\begin{enumerate}
+%	\item Wenn eine Numerierung
+%	\item gewünscht ist
+%\end{enumerate}
+%
+%\section{Besonderheit}
+%
+%Unter dem vorliegenden Kapitel ist eine Besonderheit dieser Vorlage aufgeführt. Aufgrund von Platz- und Übersichtsgründen soll wie in der ursprünglichen Vorlage im Text nur ein abgekürzter Literatureintrag angezeigt werden, wie \cite[S. 42-1337]{XP}, aber im Literaturverzeichnis soll sich der Gesamteintrag weitestgehend an den APA-Richtlinien orientieren.
+%
+%Die Formatierung des Literaturverzeichnisses weicht daher vom Standard ab. Die im Paket enthaltene Datei ,,hwrbib.bst'' bietet diese Möglichkeit an.
+%
+%Hier noch der Trigger für einige Literaturverzeichniseinträge:
+%
+%\begin{itemize}
+%	\item \cite{HUMMWIE_2005}
+%	\item \cite{DWD_Beau}
+%	\item \cite{CRISP}
+%\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 % Quellen
@@ -331,7 +359,7 @@ Hier noch der Trigger für einige Literaturverzeichniseinträge:
 
 \bibliography{literatur}
 
-\bibliographystyle{hwrbib}
+\bibliographystyle{ieeetr}
 %% \bibliographystyle{alpha} %% tu es nicht, niemals, das ist eklig, nicht einkommentieren
 
 \chapter*{Ehrenwörtliche Erklärung}
