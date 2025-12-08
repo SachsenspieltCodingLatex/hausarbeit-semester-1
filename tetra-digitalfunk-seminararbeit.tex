@@ -232,6 +232,15 @@ Hochschule für Wirtschaft und Recht Berlin}
 %%%%%%%%%%% Dokumenteninhalt START
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%1 		Einleitung
+%2-3 	TETRA Standard
+%4-5		BOS-Digitalfunknetz
+%6		Stand der Literatur
+%7-8		Vor- und Nachteile
+%9		Risiken
+%10		Fazit
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% Abstract
 \chapter*{Abstract}
@@ -288,6 +297,41 @@ Außerdem sollen mögliche Risiken und Gefahren, die mit der Nutzung des \gls{TE
 \chapter{Theoretische Einführung}\label{sec:einfuehrung}
 
 \section{Der TETRA-Standard}\label{sec:der-tetra-standard}
+
+Der \gls{TETRA} Digitalfunkstandard ist ein von der \gls{ETSI} entwickelter Standard für die digitale Mobilfunkkommunikation,
+der speziell für den Einsatz in professionellen und behördlichen Kommunikationssystemen konzipiert wurde. \cite{etsiTETRA}
+Es handelt sich dabei um einen offenen Standard, der in seiner aktuellen Form seit 2001 existiert und in mehreren von der \gls{ETSI} definierten
+Standardspezifikationen beschrieben ist.
+
+Ganz fundamental wird zwischen dem \gls{TMO} (Netzbetrieb) und dem \gls{DMO} (Direktbetrieb) unterschieden.
+Wobei der \gls{TMO} der Betrieb über eine Infrastruktur (Basisstationen, Vermittlungsstellen) erfolgt,
+während der \gls{DMO} die direkte Kommunikation zwischen Endgeräten ohne Infrastruktur ermöglicht.
+
+Für den \gls{TMO}-Betrieb spielt insbesondere die \gls{ETSI} EN 300 392-Reihe~\cite{tccaETSIStandards} eine wichtige Rolle, die die technischen Anforderungen und Spezifikationen für \gls{TETRA}-Netzwerke festlegt.
+Hauptsächliche Grundlage bildet dabei die \gls{ETSI} EN 300 392-2 Spezifikation, die die physikalische Schicht und den Zugriff auf das Funkmedium definiert. \cite[S. 30]{etsiTerrestrialTrunkedRadio2001}
+Für den \gls{DMO}-Betrieb ist die \gls{ETSI} EN 300 396~\cite{tccaETSIStandards} Reihe relevant.
+
+Im Folgenden soll das fundamentale \gls{TDMA}-Verfahren des \gls{TETRA}-Standards näher betrachtet werden.
+
+\subsection{Das TDMA-Verfahren im TETRA-Standard}\label{sec:tdma-verfahren-tetra-standard}
+
+\gls{TETRA} selbst ist ein zeitmultiplexbasiertes System, das auf dem \gls{TDMA}-Verfahren basiert.
+Anstelle die Datenpakete kontinuierlich über die Funkfrequenz zu übertragen, werden die Daten in diskrete Zeitschlitze aufgeteilt.
+Jeder Zeitschlitz kann von einem einzelnen Benutzer oder einer Gruppe von Benutzern genutzt werden, wodurch eine effiziente Nutzung der verfügbaren Bandbreite ermöglicht wird.
+Man spricht daher auch von einem ``Bündelfunk'', da mehrere Kommunikationskanäle auf einer Frequenz gebündelt werden.
+
+Im \gls{TETRA}-Standard sind pro Frequenzkanal vier Zeitschlitze definiert.
+Diese vier Zeitschlitze werden zusammengefasst als ein \gls{TDMA} frame bezeichnet.
+Jeder Zeitschlitz hat dabei eine Dauer von 14,167 ms und beinhaltet Platz für 510 bit an Daten, was zu einer Gesamtframedauer von rund 56,67 ms führt. \cite[S. 40f.]{etsiTerrestrialTrunkedRadio2001}
+Neben den \gls{TDMA} frames sind auch noch weitere, übergeordnete Strukturen definiert, die sogenannten Multi- und Hyperframes.
+Diese spielen jedoch im weiteren Verlauf dieser Arbeit keine Rolle und werden daher nicht weiter betrachtet.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.2]{bilder/TETRA_TDMA}
+    \caption[TETRA TDAM Verfahren: Veranschaulichung]{Veranschaulichung des TETRA-TDMA-Verfahrens, eigene Abbildung nach \cite[S. 40]{etsiTerrestrialTrunkedRadio2001}}% \cite[S. 40]{ETSI_EN_300_392_2_V3_3_1}
+    \label{fig:tetra-tdma}
+\end{figure}
 
 \section{Das BOS-Digitalfunknetz}\label{sec:das-bos-digitalfunknetz}
 
