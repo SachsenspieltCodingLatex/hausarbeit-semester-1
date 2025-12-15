@@ -260,11 +260,12 @@ Wenn die Abstract-Seite nicht die zweite Seite im Dokument ist, ist der Titel zu
 \addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
 
 \listoffigures
-\listoftables
 
 \section*{Hinweis}
 
-Aus Gründen der besseren Lesbarkeit wird im Text verallgemeinernd die generisch maskuline Form, sofern möglich, verwendet. Diese Formulierungen umfassen gleichermaßen weibliche und männliche Personen.
+Aus Gründen der besseren Lesbarkeit wird im Text verallgemeinernd die maskuline Form, sofern möglich, verwendet.
+Diese Formulierungen umfassen gleichermaßen weibliche und männliche Personen.
+
 \clearpage
 
 \addcontentsline{toc}{chapter}{Akronyme}
@@ -293,6 +294,7 @@ Insbesondere vergangene, einschlägige flächendeckende Ausfälle des Netzes, wi
 Aus diesem Grund beschäftigt sich die folgende Hausarbeit insbesondere mit den Vor- und Nachteilen des \gls{TETRA}-Digitalfunks
 in Hinblick auf die Einheiten der \gls{BOS} in Deutschland.
 Außerdem sollen mögliche Risiken und Gefahren, die mit der Nutzung des \gls{TETRA}-Netzes einhergehen, betrachtet werden.
+Zum Abschluss soll außerdem die Frage beantwortet werden, ob der \gls{TETRA}-Digitalfunk den Anforderungen der \gls{BOS} gerecht wird.
 
 \chapter{Theoretische Einführung}\label{sec:einfuehrung}
 
@@ -372,18 +374,67 @@ Aktuell werden 4 \glspl{DXTT} in Deutschland betrieben. \cite[S. 5]{bdbosWarumEs
 
 Gerade im Umfeld der \gls{BOS} ist die Informationssicherheit von besonderer Bedeutung.
 Aus diesem Grund ist eine verschlüsselte Kommunikation zwischen den Endgeräten im \gls{BOS}-Digitalfunknetz essenziell.
-Der \gsl{TETRA}-Standard beinhaltet hierfür standardmäßig eine Luftschnittstellenverschlüsselung, welche den reinen Übertragungsweg zwischen Endgerät und Basisstation schützt.
+Der \gls{TETRA}-Standard beinhaltet hierfür standardmäßig eine Luftschnittstellenverschlüsselung, welche den reinen Übertragungsweg zwischen Endgerät und Basisstation schützt.
 Um jedoch auch die Informationssicherheit über das gesamte Netz hinweg zu gewährleisten, führt das \gls{BOS}-Digitalfunknetz zusätzlich eine Ende-zu-Ende-Verschlüsselung ein.
 Hierfür erhält jeder Teilnehmer eine kryptografische Sicherheitskarte, welche zum einen die Autorisierung im Netz durch eine eindeutige Teilnehmeradresse ermöglicht
 und zum anderen die benötigten kryptografischen Schlüssel für die Ende-zu-Ende-Verschlüsselung bereitstellt. \cite[S. 43ff.]{bdbosFAQDigitalfunkBOS2024}
 
+\section{Aktuelle Literaturlage}\label{sec:aktuelle-literaturlage}
+
+Der aktuelle Forschungsstand im Bereich des \gls{TETRA}-Digitalfunks für BOS ist derzeit stark begrenzt.
+Einschlägig für diese Arbeit sind insbesondere die von der \gls{BDBOS} veröffentlichten Primärquellen in Form von Dokumente und Webseiten \cite{bdbosFAQDigitalfunkBOS2024,bdbosWarumEsKein2025,bdbosBDBOSGeschichte},
+vereinzelt finden sich auch Stellungnahmen oder Dokumentation von bundesweiten Verbänden wie dem \gls{DFV} \cite{agbfdfvErkenntnisseAusGrossflachigen2025} oder von durch die
+Länder betriebenen Autorisierten Stellen, welche für die Implementierung und den Betrieb des \gls{BOS}-Digitalfunknetzes
+innerhalb ihres Zuständigkeitsbereichs (Land) verantwortlich sind. \cite{zentraldienstderpolizeideslandesbrandenburg20130906Handbuch_EMVU_final_oeffentlich,bosGrundlagenDigitalfunksBOS}
+
+Zusätzlich zu den innerdeutschen Quellen existieren auch einige wenige internationale Publikationen, die sich mit dem \gls{TETRA}-Standard an sich beschäftigen.
+Dabei liegt der Fokus neben den technischen Aspekten insbesondere auf den gesundheitlichen Auswirkungen der \gls{TETRA}-Funkstrahlung auf den Menschen. \cite{renImplementationTETRAUsing2011,ozbekTrafficAwareCell2019a,elliottUseTETRAPersonal2019}
+
+Speziell für den Anwendungsfall Deutschlands und der \gls{BOS}, also dem Gegenstand dieser Arbeit, lässt sich jedoch feststellen,
+dass nur wenige rein wissenschaftliche Arbeiten zu diesem Thema existieren und die meisten Quellen daher von den primären Akteuren selbst stammen.
+Insbesondere durch die Kritikalität des Themas und die sicherheitsrelevanten Aspekte des \gls{BOS}-Digitalfunknetzes
+ist davon auszugehen, dass viele Informationen und Erkenntnisse nicht öffentlich zugänglich sind.
+
+Eine folgende Einordnung der Vor- und Nachteile sowie der Risiken und Gefahren des \gls{TETRA}-Digitalfunks ist daher nur anhand der offiziellen Quellen und der wenigen wissenschaftlichen Arbeiten möglich.
+Für eine praxisnahe Bewertung und Analyse müssten daher perspektivisch erste empirische Studien und Untersuchungen durchgeführt werden, bspw.\@ in Form von Befragungen oder Interviews mit den Einsatzkräften der \gls{BOS}.
+
 \chapter{Vor- und Nachteile des TETRA-Digitalfunks}\label{sec:vor-und-nachteile}
 
-\chapter{Risiken und Gefahren des TETRA-Digitalfunks}\label{sec:risiken-und-gefahren}
+Die Frage der Vor- und Nachteile, auch in Hinblick auf den Vergleich zum vorherigen analogen Funknetz, ist eine komplexe.
+Daher können nicht alle Aspekte in dieser Arbeit betrachtet werden.
+Im Folgenden eine essenzielle Auswahl anhand der von der \gls{BDBOS} veröffentlichten Dokumentationen. \cite{bdbosFAQDigitalfunkBOS2024}
+
+\section{Vorteile des TETRA-Digitalfunks}\label{subsec:vorteile-tetra-digitalfunk}
+
+\subsection{Gruppenruf, Einzelruf und Priorisierung}\label{subsubsec:gruppenruf-einzelruf-und-priorisierung}
+
+\subsection{Bundesweite Kommunikation}\label{subsec:bundesweite-kommunikation}
+
+\subsection{Abhör- und Informationssicherheit}\label{subsubsec:abhoer-und-informationssicherheit}
+
+\subsection{Digitale Datendienste und Short Messages}\label{subsec:digitale-datendienste-und-short-messages}
+
+\section{Nachteile des TETRA-Digitalfunks}\label{subsec:nachteile-tetra-digitalfunk}
+
+\subsection{Netzausfälle und Störanfälligkeit}\label{subsubsec:netzausfaelle-und-stoeranfalligkeit}
+
+\subsection{Benutzerfreundlichkeit und Bedienung}\label{subsubsec:benutzerfreundlichkeit-und-bedienung}
 
 \chapter{Fazit und Ausblick}\label{sec:fazit-und-ausblick}
 
-Hallo Welt!
+Mit der Einführung des \gls{TETRA}-Digitalfunks hat die \gls{BOS} in Deutschland einen bedeutenden Schritt in Richtung moderner und sicherer Kommunikation gemacht.
+Insbesondere die sichere Informationsübertragung und die flexiblen Möglichkeiten in der Kommunikation stellen klare Vorteile dar.
+Allerdings zeigen auch die Ausfälle der letzten Jahre und Monate, dass das Netz, welches durch die \gls{BDBOS} betrieben wird, noch nicht vollständig ausgereift ist,
+trotz der mittlerweile jahrelangen Betriebszeit.
+
+Darüber hinaus sollte auch betrachtet werden, ob der \gls{TETRA}-Standard in Zukunft noch den Anforderungen der \gls{BOS} gerecht wird,
+insbesondere im Hinblick auf die steigenden Anforderungen an Datenübertragungsraten und moderne Kommunikationsdienste.
+Schließlich ist dieser Standard in seiner aktuellen Form seit 2001 unverändert im Einsatz.
+
+Nachholbedarf besteht daher insbesondere in der Stabilität und Zuverlässigkeit des Netzes.
+Der Ausbau der Netzabdeckung, die Schulung der Einsatzkräfte im Umgang mit den Endgeräten sowie die kontinuierliche Weiterentwicklung des Netzes sind essenzielle Schritte,
+um den Anforderungen der \gls{BOS} auch in Zukunft gerecht zu werden.
+Hier sind vor allem die \gls{BDBOS} und die zuständigen Autorisierten Stellen in den Ländern gefordert.
 
 %Diese Einführung soll einen kurzen Überblick über die allgemeinen Möglichkeiten von \LaTeX{} geben.
 %
