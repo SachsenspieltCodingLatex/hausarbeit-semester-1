@@ -309,7 +309,7 @@ während der \gls{DMO} die direkte Kommunikation zwischen Endgeräten ohne Infra
 
 Für den \gls{TMO}-Betrieb spielt insbesondere die \gls{ETSI} EN 300 392-Reihe~\cite{tccaETSIStandards} eine wichtige Rolle, die die technischen Anforderungen und Spezifikationen für \gls{TETRA}-Netzwerke festlegt.
 Hauptsächliche Grundlage bildet dabei die \gls{ETSI} EN 300 392-2 Spezifikation, die die physikalische Schicht und den Zugriff auf das Funkmedium definiert. \cite[S. 30]{etsiTerrestrialTrunkedRadio2001}
-Für den \gls{DMO}-Betrieb ist die \gls{ETSI} EN 300 396~\cite{tccaETSIStandards} Reihe relevant.
+Für den \gls{DMO}-Betrieb ist die \gls{ETSI} EN 300 396~\cite{tccaETSIStandards} Reihe einschlägig, soll im weiteren Verlauf dieser Arbeit jedoch nicht weiter betrachtet werden.
 
 Im Folgenden soll das fundamentale \gls{TDMA}-Verfahren des \gls{TETRA}-Standards näher betrachtet werden.
 
@@ -333,7 +333,49 @@ Diese spielen jedoch im weiteren Verlauf dieser Arbeit keine Rolle und werden da
     \label{fig:tetra-tdma}
 \end{figure}
 
+\newpage
+
 \section{Das BOS-Digitalfunknetz}\label{sec:das-bos-digitalfunknetz}
+
+Mit ca.\@ 5000 Basisstationen und einer Netzabdeckung von knapp 99,2\% ist das deutsche, von der \gls{BDBOS} Digitalfunknetz (kurz: \gls{BOS}-Digitalfunknetz) das größte weltweit.
+Der Aufbau eines solchen Netzes ist dabei keineswegs trivial. \cite[S. 19]{bdbosFAQDigitalfunkBOS2024}
+
+Grundlegend wird zwischen dem ``Kern-Netz'' und dem ``Funk- und Zugangsnetz'' unterschieden.
+
+\subsection{Funk- und Zugangsnetz}\label{subsec:funk-und-zugangsnetz}
+
+Das Funk- und Zugangsnetz ist die wesentlichen Schnittstelle zwischen den Endgeräten und der rückwärtigen Netzwerkinfrastruktur.
+Es besteht im Wesentlichen aus den Basisstationen, die in ihren Funkzellen (Cells) die Netzabdeckung bereitstellen.
+Eine Basisstation verwaltet dabei u.A.\@ die Zeitschlitze im \gls{TDMA}-Verfahren und stellt die Verbindung unter den Endgeräten und ihren Rufgruppen her. \cite[S. 20]{bdbosFAQDigitalfunkBOS2024}
+
+\subsection{Kern-Netz}\label{subsec:kern-netz}
+
+Das Kern-Netz stellt das Rückgrat des \gls{BOS}-Digitalfunknetzes dar.
+Es besteht aus zwei wesentlichen Netzwerkschichten, die in Form von \glspl{DXT} und \glspl{DXTT} realisiert sind.
+
+Eine \gls{DXT} (Vermittlungsstelle) ist dabei primäres Bindeglied zwischen den Basisstationen.
+Sie verwaltet den Datenverkehr zwischen diesen und steuert Basisstation/Funkzellen übergreifende Kommunikationsvorgänge.
+In Deutschland werden Stand 2025 64 \glspl{DXT} betrieben. \cite[S. 5]{bdbosWarumEsKein2025}
+
+Eine \gls{DXTT} (Transitvermittlungsstelle) hingegen vermittelt den Datenverkehr zwischen verschiedenen \glspl{DXT}.
+Sie ist somit für die übergeordnete und überregionale Steuerung und Verwaltung des gesamten Netzes zuständig. \cite[S. 18f.]{bdbosFAQDigitalfunkBOS2024}
+Aktuell werden 4 \glspl{DXTT} in Deutschland betrieben. \cite[S. 5]{bdbosWarumEsKein2025}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{bilder/BOS_AUFBAU}
+    \caption[Aufbau BOS-Digitalfunknetz: Visualisierung]{(Geo-)Grafische Visualisierung des BOS-Digitalfunknetzes am Beispiel Sachsens, eigene Abbildung nach \cite[S. 19]{bdbosFAQDigitalfunkBOS2024}}
+    \label{fig:bos-netz-aufbau}
+\end{figure}
+
+\subsection{Ende-zu-Ende-Verschlüsselung}\label{subsec:ende-zu-ende-verschlusselung}
+
+Gerade im Umfeld der \gls{BOS} ist die Informationssicherheit von besonderer Bedeutung.
+Aus diesem Grund ist eine verschlüsselte Kommunikation zwischen den Endgeräten im \gls{BOS}-Digitalfunknetz essenziell.
+Der \gsl{TETRA}-Standard beinhaltet hierfür standardmäßig eine Luftschnittstellenverschlüsselung, welche den reinen Übertragungsweg zwischen Endgerät und Basisstation schützt.
+Um jedoch auch die Informationssicherheit über das gesamte Netz hinweg zu gewährleisten, führt das \gls{BOS}-Digitalfunknetz zusätzlich eine Ende-zu-Ende-Verschlüsselung ein.
+Hierfür erhält jeder Teilnehmer eine kryptografische Sicherheitskarte, welche zum einen die Autorisierung im Netz durch eine eindeutige Teilnehmeradresse ermöglicht
+und zum anderen die benötigten kryptografischen Schlüssel für die Ende-zu-Ende-Verschlüsselung bereitstellt. \cite[S. 43ff.]{bdbosFAQDigitalfunkBOS2024}
 
 \chapter{Vor- und Nachteile des TETRA-Digitalfunks}\label{sec:vor-und-nachteile}
 
