@@ -1,0 +1,65 @@
+Die Frage der Vor- und Nachteile, auch in Hinblick auf den Vergleich zum vorherigen analogen Funknetz, ist eine komplexe.
+Daher können nicht alle Aspekte in dieser Arbeit betrachtet werden.
+Im Folgenden eine essenzielle Auswahl anhand der von der \gls{BDBOS} veröffentlichten Dokumentationen. \cite{bdbosFAQDigitalfunkBOS2024}
+
+\section{Vorteile des TETRA-Digitalfunks}\label{sec:vorteile-tetra-digitalfunk}
+
+\subsection{Gruppenruf, Einzelruf und Priorisierung}\label{subsec:gruppenruf-einzelruf-und-priorisierung}
+
+Ein wesentlicher Vorteil des \gls{TETRA}-Digitalfunks gegenüber konventionellen digitalen Telekommunikationsstandards (wie z.\,B. GSM) ist die Möglichkeit,
+sowohl in Gruppen- als auch im Einzelruf zu kommunizieren.
+Dabei wird beim Gruppenruf ein Funkspruch simultan an alle Teilnehmer innerhalb einer Rufgruppe (auch \gls{BOS} übergreifend) übertragen.
+Diese Gruppen sind jedoch nicht statisch, sondern können dynamisch verwaltet und angepasst werden, so ist zum Beispiel ein Rufgruppenwechsel während eines Einsatzes unkompliziert möglich.
+Obendrein bleibt die reine 1:1-Kommunikation (Einzelruf) weiterhin erhalten. \cite[S. 12]{bdbosFAQDigitalfunkBOS2024}
+
+Neben den durch die FwDV 810 \cite{o.a.SprechUndDatenfunkverkehr2018} festgelegten Vorrangstufen für den Funkverkehr, gibt es ebenso darüber hinaus die Möglichkeit, einen Notruf abzusetzen.
+Löst ein Teilnehmer diesen aus, so hat er technisch Vorrang gegenüber allen anderen Funksprüchen in der Rufgruppe.
+Ebenfalls ist die zeitgleiche Übersendung eines aktuellen bzw\@.
+letzt bekannten Standorts möglich. \cite[S. 13]{bdbosFAQDigitalfunkBOS2024}
+
+\subsection{Bundesweite Kommunikation}\label{subsec:bundesweite-kommunikation}
+
+Speziell für den hier betrachteten Anwendungsfall der \gls{BOS} in Deutschland, ermöglicht das von der \gls{BDBOS} betriebene bundeseinheitliche \gls{TETRA}-Netz
+eine länderübergreifende Kommunikation zwischen den Einsatzkräften.
+Zusätzlich sind auch Grenz- sowie Netzübergreifende Verbindungen möglich, sofern die erforderlichen Schnittstellen implementiert sind. \cite[S. 21, 26]{bdbosFAQDigitalfunkBOS2024}
+
+\subsection{Digitale Datendienste und Short Messages}\label{subsec:digitale-datendienste-und-short-messages}
+
+Neben der klassischen Sprachkommunikation bietet der \gls{TETRA}-Digitalfunk auch die Möglichkeit, digitale Datendienste zu nutzen.
+Hierzu zählen unter anderem die Übertragung von kurzen Textnachrichten (Short Messages) auch \gls{SDS} genannt, die Übermittlung von Positionsdaten auf Basis des \gls{GPS} sowie die Nutzung von Statusmeldungen (standardisierte Textnachrichten). \cite[S. 13]{bdbosFAQDigitalfunkBOS2024}
+Weiterführend sind auch digitale Alarmierungen von Einsatzkräften über den \gls{TETRA}-Digitalfunk möglich. \cite[S. 23]{bdbosFAQDigitalfunkBOS2024}
+
+\subsection{Abhör- und Informationssicherheit}\label{subsec:abhoer-und-informationssicherheit}
+
+Den wohl größten Vorteil bietet die hohe Abhör- und Informationssicherheit des \gls{BOS}-Digitalfunks.
+Wie bereits in \autoref{subsec:ende-zu-ende-verschlusselung} beschrieben, wird eine Ende-zu-Ende-Verschlüsselung der Kommunikation zwischen den Endgeräten innerhalb
+des \gls{BOS}-Netz realisiert.
+Im Gegensatz zum analogen Funk ist somit das Abhören der Kommunikation durch Unbefugte erheblich erschwert.
+Hierfür liegen unter anderem auch erste Zertifizierungen nach ISO 27001 vor. \cite[S. 43]{bdbosFAQDigitalfunkBOS2024}
+
+\section{Nachteile des TETRA-Digitalfunks}\label{sec:nachteile-tetra-digitalfunk}
+
+\subsection{Netzausfälle und Störanfälligkeit}\label{subsec:netzausfaelle-und-stoeranfalligkeit}
+
+Trotz der mittlerweile jahrelangen Betriebszeit des \gls{BOS}-Digitalfunknetzes, kommt es immer wieder zu flächendeckenden Ausfällen.
+Zuletzt am \date{06. Mai 2025} kam es zu einem großflächigen Ausfall des Netzes, welcher mehrere Stunden andauerte und deutschlandweit die Kommunikation der \gls{BOS} beeinträchtigte. \cite[S. 1]{agbfdfvErkenntnisseAusGrossflachigen2025}
+
+Auch wenn ein externer Angriff ausgeschlossen werden konnte, zeigt dieser Vorfall die Anfälligkeit des Netzes.
+Grund für den Ausfall war eine Fehlfunktion in der Kernnetz-Infrastruktur der \gls{BDBOS}, welchem ein Softwarefehler des Herstellers vorausging. \cite[S. 3]{agbfdfvErkenntnisseAusGrossflachigen2025}
+Nichtsdestotrotz verdeutlicht dieser Vorfall, dass es auch fremden Angreifern möglich sein könnte, das Netz an bestimmten anfälligen Stellen zu stören.
+
+Zwar existieren Rückfallebenen wie autarke Basisstationen, die den Funkverkehr innerhalb einer Funkzelle auch bei Ausfall des Kernnetzes ermöglichen,
+sowie der Direktmodus (\gls{DMO}), der die Kommunikation zwischen Endgeräten ohne Netzinfrastruktur erlaubt,
+dennoch sind diese nur bedingt praktikabel und stellen keine vollwertige Alternative zum regulären Netzbetrieb dar. \cite[S. 3f.]{agbfdfvErkenntnisseAusGrossflachigen2025}
+
+\subsection{Benutzerfreundlichkeit und Bedienung}\label{subsec:benutzerfreundlichkeit-und-bedienung}
+
+Die Bedienung der \gls{TETRA}-Endgeräte ist im Vergleich zu analogen Funkgeräten komplexer.
+Dies liegt zum Einen an der Vielzahl an Funktionen und Möglichkeiten (wie oben beschrieben), die die Endgeräte bieten.
+Zum Anderen erfordert die grundlegende Umstellung von analogem auf digitalen Funk eine gewisse Einarbeitungszeit insbesondere für ältere Einsatzkräfte.
+
+Aus technischer Perspektive bildet der Rufaufbau den wohl größten Kritikpunkt.
+Im Gegensatz zum analogen Funk, bei dem ein Funkspruch unmittelbar übertragen wird, benötigt der \gls{TETRA}-Digitalfunk
+eine gewisse Zeit für den Verbindungsaufbau, um bspw\@.
+alle Endgeräte innerhalb der Rufgruppe zu initialisieren.
+Auch die Verschlüsselung der Kommunikation trägt zu dieser Verzögerung bei.

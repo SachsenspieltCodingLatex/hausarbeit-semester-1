@@ -279,7 +279,7 @@ Diese Formulierungen umfassen gleichermaßen weibliche und männliche Personen.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% Einführung
 
-\chapter{Einleitung}\label{sec:einleitung}
+\chapter{Einleitung}\label{ch:einleitung}
 
 Laut einer Statistik des Deutschen Feuerwehrverbandes (DFV) aus dem Jahr 2022 kommen im Jahr rund 1,02 Millionen Einsätze
 in den Bereichen Brandschutz, Technische Hilfeleistung und Tierrettung sowie 157.480 Fehlalarme zustande, Tendenz steigend. \cite[S. 2]{deutscherfeuerwehrverbandEinsatzeNachTatigkeitsbereichen2022}
@@ -296,131 +296,13 @@ in Hinblick auf die Einheiten der \gls{BOS} in Deutschland.
 Außerdem sollen mögliche Risiken und Gefahren, die mit der Nutzung des \gls{TETRA}-Netzes einhergehen, betrachtet werden.
 Zum Abschluss soll außerdem die Frage beantwortet werden, ob der \gls{TETRA}-Digitalfunk den Anforderungen der \gls{BOS} gerecht wird.
 
-\chapter{Theoretische Einführung}\label{sec:einfuehrung}
+\chapter{Theoretische Einführung}\label{ch:einfuehrung}
+\input{theoretische-einfuehrung}
 
-\section{Der TETRA-Standard}\label{sec:der-tetra-standard}
+\chapter{Vor- und Nachteile des TETRA-Digitalfunks}\label{ch:vor-und-nachteile}
+\input{vor-nachteile}
 
-Der \gls{TETRA} Digitalfunkstandard ist ein von der \gls{ETSI} entwickelter Standard für die digitale Mobilfunkkommunikation,
-der speziell für den Einsatz in professionellen und behördlichen Kommunikationssystemen konzipiert wurde. \cite{etsiTETRA}
-Es handelt sich dabei um einen offenen Standard, der in seiner aktuellen Form seit 2001 existiert und in mehreren von der \gls{ETSI} definierten
-Standardspezifikationen beschrieben ist.
-
-Ganz fundamental wird zwischen dem \gls{TMO} (Netzbetrieb) und dem \gls{DMO} (Direktbetrieb) unterschieden.
-Wobei der \gls{TMO} der Betrieb über eine Infrastruktur (Basisstationen, Vermittlungsstellen) erfolgt,
-während der \gls{DMO} die direkte Kommunikation zwischen Endgeräten ohne Infrastruktur ermöglicht.
-
-Für den \gls{TMO}-Betrieb spielt insbesondere die \gls{ETSI} EN 300 392-Reihe~\cite{tccaETSIStandards} eine wichtige Rolle, die die technischen Anforderungen und Spezifikationen für \gls{TETRA}-Netzwerke festlegt.
-Hauptsächliche Grundlage bildet dabei die \gls{ETSI} EN 300 392-2 Spezifikation, die die physikalische Schicht und den Zugriff auf das Funkmedium definiert. \cite[S. 30]{etsiTerrestrialTrunkedRadio2001}
-Für den \gls{DMO}-Betrieb ist die \gls{ETSI} EN 300 396~\cite{tccaETSIStandards} Reihe einschlägig, soll im weiteren Verlauf dieser Arbeit jedoch nicht weiter betrachtet werden.
-
-Im Folgenden soll das fundamentale \gls{TDMA}-Verfahren des \gls{TETRA}-Standards näher betrachtet werden.
-
-\subsection{Das TDMA-Verfahren im TETRA-Standard}\label{sec:tdma-verfahren-tetra-standard}
-
-\gls{TETRA} selbst ist ein zeitmultiplexbasiertes System, das auf dem \gls{TDMA}-Verfahren basiert.
-Anstelle die Datenpakete kontinuierlich über die Funkfrequenz zu übertragen, werden die Daten in diskrete Zeitschlitze aufgeteilt.
-Jeder Zeitschlitz kann von einem einzelnen Benutzer oder einer Gruppe von Benutzern genutzt werden, wodurch eine effiziente Nutzung der verfügbaren Bandbreite ermöglicht wird.
-Man spricht daher auch von einem ``Bündelfunk'', da mehrere Kommunikationskanäle auf einer Frequenz gebündelt werden.
-
-Im \gls{TETRA}-Standard sind pro Frequenzkanal vier Zeitschlitze definiert.
-Diese vier Zeitschlitze werden zusammengefasst als ein \gls{TDMA} frame bezeichnet.
-Jeder Zeitschlitz hat dabei eine Dauer von 14,167 ms und beinhaltet Platz für 510 bit an Daten, was zu einer Gesamtframedauer von rund 56,67 ms führt. \cite[S. 40f.]{etsiTerrestrialTrunkedRadio2001}
-Neben den \gls{TDMA} frames sind auch noch weitere, übergeordnete Strukturen definiert, die sogenannten Multi- und Hyperframes.
-Diese spielen jedoch im weiteren Verlauf dieser Arbeit keine Rolle und werden daher nicht weiter betrachtet.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.2]{bilder/TETRA_TDMA}
-    \caption[TETRA TDAM Verfahren: Veranschaulichung]{Veranschaulichung des TETRA-TDMA-Verfahrens, eigene Abbildung nach \cite[S. 40]{etsiTerrestrialTrunkedRadio2001}}% \cite[S. 40]{ETSI_EN_300_392_2_V3_3_1}
-    \label{fig:tetra-tdma}
-\end{figure}
-
-\newpage
-
-\section{Das BOS-Digitalfunknetz}\label{sec:das-bos-digitalfunknetz}
-
-Mit ca.\@ 5000 Basisstationen und einer Netzabdeckung von knapp 99,2\% ist das deutsche, von der \gls{BDBOS} Digitalfunknetz (kurz: \gls{BOS}-Digitalfunknetz) das größte weltweit.
-Der Aufbau eines solchen Netzes ist dabei keineswegs trivial. \cite[S. 19]{bdbosFAQDigitalfunkBOS2024}
-
-Grundlegend wird zwischen dem ``Kern-Netz'' und dem ``Funk- und Zugangsnetz'' unterschieden.
-
-\subsection{Funk- und Zugangsnetz}\label{subsec:funk-und-zugangsnetz}
-
-Das Funk- und Zugangsnetz ist die wesentlichen Schnittstelle zwischen den Endgeräten und der rückwärtigen Netzwerkinfrastruktur.
-Es besteht im Wesentlichen aus den Basisstationen, die in ihren Funkzellen (Cells) die Netzabdeckung bereitstellen.
-Eine Basisstation verwaltet dabei u.A.\@ die Zeitschlitze im \gls{TDMA}-Verfahren und stellt die Verbindung unter den Endgeräten und ihren Rufgruppen her. \cite[S. 20]{bdbosFAQDigitalfunkBOS2024}
-
-\subsection{Kern-Netz}\label{subsec:kern-netz}
-
-Das Kern-Netz stellt das Rückgrat des \gls{BOS}-Digitalfunknetzes dar.
-Es besteht aus zwei wesentlichen Netzwerkschichten, die in Form von \glspl{DXT} und \glspl{DXTT} realisiert sind.
-
-Eine \gls{DXT} (Vermittlungsstelle) ist dabei primäres Bindeglied zwischen den Basisstationen.
-Sie verwaltet den Datenverkehr zwischen diesen und steuert Basisstation/Funkzellen übergreifende Kommunikationsvorgänge.
-In Deutschland werden Stand 2025 64 \glspl{DXT} betrieben. \cite[S. 5]{bdbosWarumEsKein2025}
-
-Eine \gls{DXTT} (Transitvermittlungsstelle) hingegen vermittelt den Datenverkehr zwischen verschiedenen \glspl{DXT}.
-Sie ist somit für die übergeordnete und überregionale Steuerung und Verwaltung des gesamten Netzes zuständig. \cite[S. 18f.]{bdbosFAQDigitalfunkBOS2024}
-Aktuell werden 4 \glspl{DXTT} in Deutschland betrieben. \cite[S. 5]{bdbosWarumEsKein2025}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.4]{bilder/BOS_AUFBAU}
-    \caption[Aufbau BOS-Digitalfunknetz: Visualisierung]{(Geo-)Grafische Visualisierung des BOS-Digitalfunknetzes am Beispiel Sachsens, eigene Abbildung nach \cite[S. 19]{bdbosFAQDigitalfunkBOS2024}}
-    \label{fig:bos-netz-aufbau}
-\end{figure}
-
-\subsection{Ende-zu-Ende-Verschlüsselung}\label{subsec:ende-zu-ende-verschlusselung}
-
-Gerade im Umfeld der \gls{BOS} ist die Informationssicherheit von besonderer Bedeutung.
-Aus diesem Grund ist eine verschlüsselte Kommunikation zwischen den Endgeräten im \gls{BOS}-Digitalfunknetz essenziell.
-Der \gls{TETRA}-Standard beinhaltet hierfür standardmäßig eine Luftschnittstellenverschlüsselung, welche den reinen Übertragungsweg zwischen Endgerät und Basisstation schützt.
-Um jedoch auch die Informationssicherheit über das gesamte Netz hinweg zu gewährleisten, führt das \gls{BOS}-Digitalfunknetz zusätzlich eine Ende-zu-Ende-Verschlüsselung ein.
-Hierfür erhält jeder Teilnehmer eine kryptografische Sicherheitskarte, welche zum einen die Autorisierung im Netz durch eine eindeutige Teilnehmeradresse ermöglicht
-und zum anderen die benötigten kryptografischen Schlüssel für die Ende-zu-Ende-Verschlüsselung bereitstellt. \cite[S. 43ff.]{bdbosFAQDigitalfunkBOS2024}
-
-\section{Aktuelle Literaturlage}\label{sec:aktuelle-literaturlage}
-
-Der aktuelle Forschungsstand im Bereich des \gls{TETRA}-Digitalfunks für BOS ist derzeit stark begrenzt.
-Einschlägig für diese Arbeit sind insbesondere die von der \gls{BDBOS} veröffentlichten Primärquellen in Form von Dokumente und Webseiten \cite{bdbosFAQDigitalfunkBOS2024,bdbosWarumEsKein2025,bdbosBDBOSGeschichte},
-vereinzelt finden sich auch Stellungnahmen oder Dokumentation von bundesweiten Verbänden wie dem \gls{DFV} \cite{agbfdfvErkenntnisseAusGrossflachigen2025} oder von durch die
-Länder betriebenen Autorisierten Stellen, welche für die Implementierung und den Betrieb des \gls{BOS}-Digitalfunknetzes
-innerhalb ihres Zuständigkeitsbereichs (Land) verantwortlich sind. \cite{zentraldienstderpolizeideslandesbrandenburg20130906Handbuch_EMVU_final_oeffentlich,bosGrundlagenDigitalfunksBOS}
-
-Zusätzlich zu den innerdeutschen Quellen existieren auch einige wenige internationale Publikationen, die sich mit dem \gls{TETRA}-Standard an sich beschäftigen.
-Dabei liegt der Fokus neben den technischen Aspekten insbesondere auf den gesundheitlichen Auswirkungen der \gls{TETRA}-Funkstrahlung auf den Menschen. \cite{renImplementationTETRAUsing2011,ozbekTrafficAwareCell2019a,elliottUseTETRAPersonal2019}
-
-Speziell für den Anwendungsfall Deutschlands und der \gls{BOS}, also dem Gegenstand dieser Arbeit, lässt sich jedoch feststellen,
-dass nur wenige rein wissenschaftliche Arbeiten zu diesem Thema existieren und die meisten Quellen daher von den primären Akteuren selbst stammen.
-Insbesondere durch die Kritikalität des Themas und die sicherheitsrelevanten Aspekte des \gls{BOS}-Digitalfunknetzes
-ist davon auszugehen, dass viele Informationen und Erkenntnisse nicht öffentlich zugänglich sind.
-
-Eine folgende Einordnung der Vor- und Nachteile sowie der Risiken und Gefahren des \gls{TETRA}-Digitalfunks ist daher nur anhand der offiziellen Quellen und der wenigen wissenschaftlichen Arbeiten möglich.
-Für eine praxisnahe Bewertung und Analyse müssten daher perspektivisch erste empirische Studien und Untersuchungen durchgeführt werden, bspw.\@ in Form von Befragungen oder Interviews mit den Einsatzkräften der \gls{BOS}.
-
-\chapter{Vor- und Nachteile des TETRA-Digitalfunks}\label{sec:vor-und-nachteile}
-
-Die Frage der Vor- und Nachteile, auch in Hinblick auf den Vergleich zum vorherigen analogen Funknetz, ist eine komplexe.
-Daher können nicht alle Aspekte in dieser Arbeit betrachtet werden.
-Im Folgenden eine essenzielle Auswahl anhand der von der \gls{BDBOS} veröffentlichten Dokumentationen. \cite{bdbosFAQDigitalfunkBOS2024}
-
-\section{Vorteile des TETRA-Digitalfunks}\label{subsec:vorteile-tetra-digitalfunk}
-
-\subsection{Gruppenruf, Einzelruf und Priorisierung}\label{subsubsec:gruppenruf-einzelruf-und-priorisierung}
-
-\subsection{Bundesweite Kommunikation}\label{subsec:bundesweite-kommunikation}
-
-\subsection{Abhör- und Informationssicherheit}\label{subsubsec:abhoer-und-informationssicherheit}
-
-\subsection{Digitale Datendienste und Short Messages}\label{subsec:digitale-datendienste-und-short-messages}
-
-\section{Nachteile des TETRA-Digitalfunks}\label{subsec:nachteile-tetra-digitalfunk}
-
-\subsection{Netzausfälle und Störanfälligkeit}\label{subsubsec:netzausfaelle-und-stoeranfalligkeit}
-
-\subsection{Benutzerfreundlichkeit und Bedienung}\label{subsubsec:benutzerfreundlichkeit-und-bedienung}
-
-\chapter{Fazit und Ausblick}\label{sec:fazit-und-ausblick}
+\chapter{Fazit und Ausblick}\label{ch:fazit-und-ausblick}
 
 Mit der Einführung des \gls{TETRA}-Digitalfunks hat die \gls{BOS} in Deutschland einen bedeutenden Schritt in Richtung moderner und sicherer Kommunikation gemacht.
 Insbesondere die sichere Informationsübertragung und die flexiblen Möglichkeiten in der Kommunikation stellen klare Vorteile dar.
